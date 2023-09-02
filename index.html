@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Forever Runner</title>
     <script src="animator.js"></script>
+    <script src="foreverRunnerGame.js"></script>
 </head>
 <body>
     <canvas id="canvas" width="1000" height="600"></canvas>
@@ -12,11 +13,11 @@
         // Define Player Parameters
 
         const playerOptions = {
-            width:30,
-            height:50,
+            width:60,
+            height:100,
             startX:40,
-            jumpPower:15,
-            jumpHeight:220,
+            jumpPower:30,
+            jumpHeight:440,
             gravity:12,
             playerSpeed:2,
             showTime:5,
@@ -27,6 +28,17 @@
                 "./assets/player4.png"
             ]
         };
+        // Game Difficulty
+
+        const difficulty = {
+            speedIncrease :0.1,
+            maxIncrease : 5
+        }
+
+        // Game basic property
+        const frameRate = 30;
+        const groundOffset = 40;
+        const foreverRunnerGame = new ForeverRunnerGame("canvas",frameRate,groundOffset,playerOptions,difficulty);
 
     </script>
 </body>
