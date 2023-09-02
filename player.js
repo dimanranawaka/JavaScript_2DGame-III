@@ -40,5 +40,11 @@ class Player{
         return this.collider.overlapWithOthers(others);
     }
 
-
+    static create(playerOptions,groundY){
+        const position = new Point2d(playerOptions.startX, groundY);
+        const collider = new Collider(position, playerOptions.width, playerOptions.height);
+        const animator = Animator.create(playerOptions.playerSpeed,playerOptions.showTime,playerOptions.imageSources);
+        const movement = new Movement(position, groundY, playerOptions.height, playerOptions.jumpPower,playerOptions.jumpHeight);
+        return new Player(position, animator, movement, collider);
+    }
 }
