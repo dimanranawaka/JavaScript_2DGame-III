@@ -18,11 +18,9 @@ class Collider{
 
     overlapsWithOthers(others) {
         for (let i = 0; i < others.length; i++) {
-            if (this.overlaps(others[i])) {
-                return true;
-            };
-        return false;
+            if (this.overlaps(others[i])) return true;
         }
+        return false;
     }
 
 }

@@ -36,9 +36,8 @@ class  Spawner{
         }
 
     // Don't allow any spawns if the last obstacle is not far enough from spawn position
-        if (this.lastObstacle !=null && this.lastObstacle.position.x > this.startX - this.nextSpawnLength){
+        if (this.lastObstacle !=null && this.lastObstacle.position.x > this.startX - this.nextSpawnLength)
             return;
-        }
 
     // Get the inactive obstacles and continue if any were found
         const inactiveObstacles = this.getInactiveObstacles();
@@ -80,20 +79,20 @@ class  Spawner{
     }
 
     // A method that can be used to create a spawner by a passing an object specifying spawn details
-    static create(spawnerOptions, startX, groundY){
-        for (let i =0; i < spawnerOptions.obstacles.length; i++){
-            spawnerOptions.obstacles[i].position.x = -1;
-            spawnerOptions.obstacles[i].position.y = groundY - spawnerOptions.obstacles[i].h;
+    static create(options, startX, groundY){
+        for (let i =0; i < options.obstacles.length; i++){
+            options.obstacles[i].position.x = -1;
+            options.obstacles[i].position.y = groundY - options.obstacles[i].h;
         }
 
 
         return new Spawner(
-            spawnerOptions.obstacles,
-            spawnerOptions.maxActive,
-            spawnerOptions.startX,
+            options.obstacles,
+            options.maxActive,
+            options.startX,
             startX,
-            spawnerOptions.minLength,
-            spawnerOptions.minLength
+            options.minLength,
+            options.minLength
         );
     }
 

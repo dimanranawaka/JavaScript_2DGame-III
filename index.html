@@ -1,39 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Forever Runner</title>
-    <script src="animator.js"></script>
-    <script src="point2d.js"></script>
-    <script src="movement.js"></script>
-    <script src="collider.js"></script>
-    <script src="player.js"></script>
-    <script src="tree.js"></script>
-    <script src="rock.js"></script>
-    <script src="spawner.js"></script>
-    <script src="background.js"></script>
-    <script src="foreverRunnerGame.js"></script>
+
+    <script src="javaScript/point2d.js"></script>
+    <script src="javaScript/animator.js"></script>
+    <script src="javaScript/background.js"></script>
+    <script src="javaScript/collider.js"></script>
+    <script src="javaScript/movement.js"></script>
+    <script src="javaScript/player.js"></script>
+    <script src="javaScript/tree.js"></script>
+    <script src="javaScript/rock.js"></script>
+    <script src="javaScript/spawner.js"></script>
+    <script src="javaScript/foreverRunnerGame.js"></script>
+
 </head>
 <body>
-    <canvas id="canvas" width="1000" height="600"></canvas>
+    <canvas id="canvas" width="500" height="300"></canvas>
     <script>
 
         // Define Player Parameters
 
         const playerOptions = {
-            width:60,
-            height:100,
+            width:30,
+            height:50,
             startX:40,
-            jumpPower:30,
-            jumpHeight:440,
+            jumpPower:15,
+            jumpHeight:220,
             gravity:12,
             playerSpeed:2,
             showTime:5,
             imageSources :[
-                "./assets/player1.png",
-                "./assets/player2.png",
-                "./assets/player3.png",
-                "./assets/player4.png"
+                "./images/player1.png",
+                "./images/player2.png",
+                "./images/player3.png",
+                "./images/player4.png"
             ]
         };
 
@@ -65,14 +65,16 @@
 
         const difficulty = {
             speedIncrease :0.1,
-            maxIncrease : 5
-        };
+            maxIncrease :5
+        }
 
         // Game basic property
         const frameRate = 30;
         const groundOffset = 40;
-        const foreverRunnerGame = new ForeverRunnerGame("canvas",frameRate,groundOffset,playerOptions,difficulty);
+        const foreverRunnerGame = new ForeverRunnerGame("canvas",frameRate,groundOffset,playerOptions,spawnerOptions,difficulty);
 
+        // Start the Game
+        foreverRunnerGame.start();
     </script>
 </body>
 </html>
