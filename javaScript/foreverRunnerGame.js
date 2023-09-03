@@ -75,7 +75,7 @@ class ForeverRunnerGame{
             this.player.update();
 
             // Check the overlaps
-            this.gameOver = this.player.overlapWithOthers(this.spawner.activeObstacles);
+            this.gameOver = this.player.overlapsWithOthers(this.spawner.activeObstacles);
 
             // Increase score
             this.score++;

@@ -18,7 +18,7 @@ class  Spawner{
     // This will update the spawn behaviour
     update(){
         // Move active obstacles , and remove them from the active list if they are out of the sight
-        for (let i = this.activeObstacles.length-1; i>-1; i--) {
+        for (let i = this.activeObstacles.length - 1; i > -1; i--) {
             this.activeObstacles[i].position.add(-this.speed, 0);
 
             if (this.activeObstacles[i].position.x<0){
@@ -31,9 +31,9 @@ class  Spawner{
     trySpawn(){
 
     // Don't allow any spawns if the number of active obstacles is greater than or equal to the value of maxActive
-        if (this.activeObstacles.length>=this.maxActive){
+        if (this.activeObstacles.length>=this.maxActive)
             return;
-        }
+
 
     // Don't allow any spawns if the last obstacle is not far enough from spawn position
         if (this.lastObstacle !=null && this.lastObstacle.position.x > this.startX - this.nextSpawnLength)
@@ -41,9 +41,8 @@ class  Spawner{
 
     // Get the inactive obstacles and continue if any were found
         const inactiveObstacles = this.getInactiveObstacles();
-        if (inactiveObstacles.length == 0){
+        if (inactiveObstacles.length == 0)
             return;
-        }
 
     // Get a random obstacle and spawn it to the scene
         const randomIndex = Math.floor(Math.random() * inactiveObstacles.length);
@@ -57,7 +56,7 @@ class  Spawner{
         this.lastObstacle = obstacle;
 
         // Move it to the start position
-        this.activeObstacles.position.x = this.startX;
+        this.lastObstacle.position.x = this.startX;
 
         // Add it to list of active obstacles
         this.activeObstacles.push(obstacle);
@@ -71,7 +70,7 @@ class  Spawner{
     getInactiveObstacles(){
         const inactiveObstacles = [];
         for (let i = 0; i < this.obstacles.length; i++) {
-            if (this.obstacles[i].position.x <0 || this.obstacles[i].x > this.startX){
+            if (this.obstacles[i].position.x < 0 || this.obstacles[i].x > this.startX){
                 inactiveObstacles.push(this.obstacles[i]);
             }
         }
@@ -79,22 +78,20 @@ class  Spawner{
     }
 
     // A method that can be used to create a spawner by a passing an object specifying spawn details
-    static create(options, startX, groundY){
-        for (let i =0; i < options.obstacles.length; i++){
-            options.obstacles[i].position.x = -1;
-            options.obstacles[i].position.y = groundY - options.obstacles[i].h;
+    static create(spawnerOptions, startX, groundY){
+        for (let i =0; i < spawnerOptions.obstacles.length; i++){
+            spawnerOptions.obstacles[i].position.x = -1;
+            spawnerOptions.obstacles[i].position.y = groundY - spawnerOptions.obstacles[i].h;
         }
 
 
         return new Spawner(
-            options.obstacles,
-            options.maxActive,
-            options.startX,
+            spawnerOptions.obstacles,
+            spawnerOptions.maxActive,
+            spawnerOptions.speed,
             startX,
-            options.minLength,
-            options.minLength
+            spawnerOptions.minLength,
+            spawnerOptions.minLength
         );
     }
-
-
 }

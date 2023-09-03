@@ -33,11 +33,11 @@ class Background{
 
         this.current += (this.decrease ? -1:1);
 
-        if(this.current === this.max){
+        if(this.current == this.max){
 
             this.decrease = true;
 
-        }else if (this.current === 0){
+        }else if (this.current == 0){
 
             this.decrease = false;
 

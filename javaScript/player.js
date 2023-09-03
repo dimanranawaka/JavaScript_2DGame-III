@@ -36,15 +36,15 @@ class Player{
 
     // This will return true if the collider overlaps with one in the list of colliders
 
-    overlapWithOthers(others){
+    overlapsWithOthers(others){
         return this.collider.overlapsWithOthers(others);
     }
 
-    static create(options,groundY){
-        const position = new Point2d(options.startX, groundY);
-        const collider = new Collider(position, options.width, options.height);
-        const animator = Animator.create(options.playerSpeed,options.showTime,options.imageSources);
-        const movement = new Movement(position, groundY, options.height, options.jumpPower,options.jumpHeight);
+    static create(playerOptions,groundY){
+        const position = new Point2d(playerOptions.startX, groundY);
+        const collider = new Collider(position, playerOptions.width, playerOptions.height);
+        const animator = Animator.create(playerOptions.playerSpeed,playerOptions.showTime,playerOptions.imageSources);
+        const movement = new Movement(position, groundY, playerOptions.height, playerOptions.jumpPower,playerOptions.jumpHeight,playerOptions.gravity);
         return new Player(position, animator, movement, collider);
     }
 }
