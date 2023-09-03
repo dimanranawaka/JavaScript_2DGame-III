@@ -1,3 +1,7 @@
 class Tree{
+    constructor() {
+    }
+    create(){
 
+    }
 }

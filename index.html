@@ -7,6 +7,7 @@
     <script src="foreverRunnerGame.js"></script>
     <script src="movement.js"></script>
     <script src="collider.js"></script>
+    <script src="player.js"></script>
 </head>
 <body>
     <canvas id="canvas" width="1000" height="600"></canvas>
@@ -30,12 +31,37 @@
                 "./assets/player4.png"
             ]
         };
+
+        // spawner properties
+
+        const spawnerOptions = {
+
+            width: 60,
+            height: 100,
+            minLength:180,
+            maxLength:220,
+            speed:5,
+            maxActive:2,
+            obstacles: [
+
+                Tree.create(-130, 0, 8, 32, 15),
+                Tree.create(-130, 0, 8, 32, 15),
+                Rock.create(-170, 0, 28, 25, 5),
+                Rock.create(-170, 0, 28, 25, 5)
+            ]
+
+
+        };
+
+
+
+
         // Game Difficulty
 
         const difficulty = {
             speedIncrease :0.1,
             maxIncrease : 5
-        }
+        };
 
         // Game basic property
         const frameRate = 30;

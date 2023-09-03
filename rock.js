@@ -1,3 +1,7 @@
 class Rock{
+    constructor() {
+    }
+    create(){
 
+    }
 }
