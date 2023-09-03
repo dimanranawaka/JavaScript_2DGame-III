@@ -1,5 +1,5 @@
 class ForeverRunnerGame{
-    constructor(id,frameRate,groundOffset,playerOptions,spawnerOptions,difficulty) {
+    constructor(id, frameRate, groundOffset, playerOptions, spawnerOptions, difficulty) {
 
         this.canvas = document.getElementById(id);
         this.ctx = this.canvas.getContext("2d");
@@ -73,6 +73,7 @@ class ForeverRunnerGame{
             // Execute Update
             this.background.update();
             this.player.update();
+            this.spawner.update();
 
             // Check the overlaps
             this.gameOver = this.player.overlapsWithOthers(this.spawner.activeObstacles);
@@ -101,7 +102,8 @@ class ForeverRunnerGame{
     drawGameOver(){
 
         this.ctx.beginPath();
-        this.ctx.fillText("GAMEOVER", this.canvas.width/2 , this.canvas.height/2);
+        this.ctx.fillStyle()
+        this.ctx.fillText("GAMEOVER", this.canvas.width / 2 , this.canvas.height / 2);
         this.ctx.closePath();
 
     }

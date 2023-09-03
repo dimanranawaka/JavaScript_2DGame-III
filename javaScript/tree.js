@@ -31,7 +31,7 @@ class Tree{
     }
     // This will draw trunk of the tree
     drawTrunk(ctx){
-        const x = this.position.x + (this.w/2) - (this.trunkWidth/2);
+        const x = this.position.x + (this.w/2) - (this.trunkWidth / 2);
         const y = this.position.y + (this.crownRadius * 2) -1;
 
         ctx.beginPath();
@@ -42,18 +42,18 @@ class Tree{
 
     // This method will draw crown of the tree
     drawCrown(ctx){
-        const x = this.position.x + this.w/2;
+        const x = this.position.x + this.w / 2;
         const y = this.position.y + this.crownRadius;
 
         ctx.beginPath();
-        ctx.arc(x,y,this.crownRadius,0,2 * Math.PI);
+        ctx.arc(x, y, this.crownRadius,0,2 * Math.PI);
         ctx.fill();
         ctx.closePath();
     }
 
     // A method that can be used to create a tree without passing a point2D
-    static create(x,y, trunkWidth, trunkHeight, crownRadius){
-        const position = new Point2d(x,y);
+    static create(x, y, trunkWidth, trunkHeight, crownRadius){
+        const position = new Point2d(x, y);
         return new Tree(position, trunkWidth, trunkHeight, crownRadius);
     }
 }

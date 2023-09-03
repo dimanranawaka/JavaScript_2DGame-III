@@ -21,9 +21,9 @@ class  Spawner{
         for (let i = this.activeObstacles.length - 1; i > -1; i--) {
             this.activeObstacles[i].position.add(-this.speed, 0);
 
-            if (this.activeObstacles[i].position.x<0){
+            if (this.activeObstacles[i].position.x < 0)
                 this.activeObstacles.splice(i,1);
-            }
+
         }
         this.trySpawn();
     }
@@ -31,7 +31,7 @@ class  Spawner{
     trySpawn(){
 
     // Don't allow any spawns if the number of active obstacles is greater than or equal to the value of maxActive
-        if (this.activeObstacles.length>=this.maxActive)
+        if (this.activeObstacles.length >= this.maxActive)
             return;
 
 
@@ -68,11 +68,13 @@ class  Spawner{
 
     // A method that can be used to get a list of inactive obstacles.
     getInactiveObstacles(){
+
         const inactiveObstacles = [];
+
         for (let i = 0; i < this.obstacles.length; i++) {
-            if (this.obstacles[i].position.x < 0 || this.obstacles[i].x > this.startX){
+            if (this.obstacles[i].position.x < 0 || this.obstacles[i].x > this.startX)
                 inactiveObstacles.push(this.obstacles[i]);
-            }
+
         }
         return inactiveObstacles;
     }
@@ -91,7 +93,6 @@ class  Spawner{
             spawnerOptions.speed,
             startX,
             spawnerOptions.minLength,
-            spawnerOptions.minLength
-        );
+            spawnerOptions.minLength);
     }
 }
