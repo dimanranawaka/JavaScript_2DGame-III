@@ -102,7 +102,6 @@ class ForeverRunnerGame{
     drawGameOver(){
 
         this.ctx.beginPath();
-        this.ctx.fillStyle()
         this.ctx.fillText("GAMEOVER", this.canvas.width / 2 , this.canvas.height / 2);
         this.ctx.closePath();
 

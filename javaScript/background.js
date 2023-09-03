@@ -14,7 +14,7 @@ class Background{
         // Draw Background Colors
 
         ctx.beginPath();
-        ctx.fillStyle = `rgb($(this.current),$(this.current),$(this.current))`;
+        ctx.fillStyle = `rgb(${this.current},${this.current},${this.current})`;
         ctx.rect(0,0, this.w, this.h);
         ctx.fill();
         ctx.closePath();
